@@ -1,0 +1,51 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <script language="javascript" type="text/javascript" src="js/p5/p5.js"></script>
+  <script language="javascript" src="js/p5/addons/p5.sound.js"></script>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      width:100%;
+    }
+
+    .formbox{
+      position:absolute;
+      left:50%;
+      top:10%;
+      width:400px;
+      height:200px;
+      margin-left:-200px;
+      margin-top:-100px;
+    }
+
+    .button-wrapper{
+      position:relative;
+      top:40%;
+      float:left;
+      width:50%;
+    }
+
+    .button-wrapper button{
+      width:100px;
+      height:50px;
+      position:relative;
+      left:25%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="formbox">
+    <div class="button-wrapper">
+      <button id="success" type="button">Success!</button>
+    </div>
+    <div class="button-wrapper">
+      <button id="failure" type="button">Failure!</button>
+    </div>
+  </div>
+  <script language="javascript" type="text/javascript" src="js/sketch.js"></script>
+</body>
+</html>
