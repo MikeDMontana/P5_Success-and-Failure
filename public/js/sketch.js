@@ -1,6 +1,6 @@
 var state;
 var default_color, success_color, failure_color;
-var current_color, target_color;
+var target_color;
 
 var interpolation = 0;
 
@@ -14,7 +14,7 @@ function setup(){
   createCanvas(window.innerWidth,window.innerHeight);
 
   success_sound = loadSound('sounds/success.mp3');
-  failure_sound = loadSound('sounds/failure.wav');
+  failure_sound = loadSound('sounds/failure.mp3');
 
   imageMode(CENTER);
 
@@ -25,16 +25,15 @@ function setup(){
   success_color = color(179, 204, 255);
   failure_color = color(255, 153, 153);
 
-  current_color = default_color;
   target_color  = default_color;
 }
 
 function draw(){
-  var backgroundColor = lerpColor(current_color, target_color, interpolation);
+  var backgroundColor = lerpColor(default_color, target_color, interpolation);
   background(backgroundColor);
 
   if(interpolation < 1){
-    interpolation += 0.03;
+    interpolation += 0.04;
   }
 
   if(state == "failure"){
@@ -46,6 +45,7 @@ function draw(){
 
 function changeToSuccess(){
   success_sound.play();
+  failure_sound.stop();
   target_color  = success_color;
   interpolation = 0;
   state = "success";
@@ -53,6 +53,7 @@ function changeToSuccess(){
 
 function changeToFailure(){
   failure_sound.play();
+  success_sound.stop();
   target_color  = failure_color;
   interpolation = 0;
   state = "failure";
